@@ -1,0 +1,12 @@
+chroma_db/
+data/
+__pycache__/
+venv/
+.venv/
+node_modules/
+package-lock.json
+*.db
+*.sqlite3
+*.lock
+queue/
+*.bin

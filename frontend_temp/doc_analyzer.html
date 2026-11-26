@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Luminescent Archive | Document Analyzer</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "outline-variant": "#464555",
+                        "on-surface-variant": "#c7c4d8",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-tertiary-container": "#ffd2be",
+                        "inverse-primary": "#494bd6",
+                        "on-secondary-fixed": "#0d1c2e",
+                        "on-primary-container": "#d9d8ff",
+                        "inverse-on-surface": "#313030",
+                        "error-container": "#93000a",
+                        "surface": "#131313",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-variant": "#353534",
+                        "on-background": "#e5e2e1",
+                        "tertiary": "#ffb695",
+                        "on-primary": "#1000a9",
+                        "secondary-fixed-dim": "#b9c7df",
+                        "secondary": "#b9c7df",
+                        "on-tertiary": "#571f00",
+                        "on-primary-fixed": "#07006c",
+                        "tertiary-fixed-dim": "#ffb695",
+                        "on-tertiary-fixed": "#351000",
+                        "primary-fixed": "#e1e0ff",
+                        "outline": "#918fa1",
+                        "on-primary-fixed-variant": "#2f2ebe",
+                        "surface-container-low": "#1c1b1b",
+                        "surface-container-highest": "#353534",
+                        "error": "#ffb4ab",
+                        "secondary-container": "#3c4a5e",
+                        "background": "#131313",
+                        "tertiary-container": "#a44100",
+                        "surface-bright": "#3a3939",
+                        "tertiary-fixed": "#ffdbcc",
+                        "on-surface": "#e5e2e1",
+                        "on-error": "#690005",
+                        "on-secondary": "#233144",
+                        "on-error-container": "#ffdad6",
+                        "primary-fixed-dim": "#c0c1ff",
+                        "inverse-surface": "#e5e2e1",
+                        "primary": "#c0c1ff",
+                        "surface-dim": "#131313",
+                        "secondary-fixed": "#d5e3fc",
+                        "on-tertiary-fixed-variant": "#7b2f00",
+                        "surface-container": "#201f1f",
+                        "on-secondary-container": "#abb9d1",
+                        "surface-tint": "#c0c1ff",
+                        "on-secondary-fixed-variant": "#3a485b",
+                        "primary-container": "#4b4dd8"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #353534; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary/30">
+<!-- SideNavBar (Persistent) -->
+<aside class="fixed left-0 top-0 h-full flex flex-col bg-neutral-900/70 backdrop-blur-xl h-screen w-64 border-r border-white/5 shadow-2xl shadow-black/50 z-50">
+<div class="p-8">
+<h1 class="text-xl font-bold tracking-widest text-neutral-100 font-headline">Luminescent Archive</h1>
+<p class="text-xs text-indigo-300/60 uppercase tracking-tighter mt-1 font-headline">AI Research System</p>
+</div>
+<button class="mx-6 mb-8 py-3 px-4 bg-primary-container text-on-primary-container rounded-xl flex items-center justify-center gap-2 hover:opacity-90 transition-all active:scale-95 font-semibold">
+<span class="material-symbols-outlined text-[20px]">add</span>
+<span>New Research Session</span>
+</button>
+<nav class="flex-1 space-y-2 px-4">
+<!-- Research Chat -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 ease-out text-neutral-400 hover:text-neutral-200 hover:bg-neutral-800/30" href="#">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="font-manrope tracking-tight">Research Chat</span>
+</a>
+<!-- Document Analyzer (ACTIVE) -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 ease-out border-l-4 border-indigo-400 bg-neutral-800/50 text-indigo-200 font-semibold" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">contract_edit</span>
+<span class="font-manrope tracking-tight">Document Analyzer</span>
+</a>
+<!-- Web Research -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 ease-out text-neutral-400 hover:text-neutral-200 hover:bg-neutral-800/30" href="#">
+<span class="material-symbols-outlined">travel_explore</span>
+<span class="font-manrope tracking-tight">Web Research</span>
+</a>
+<!-- Knowledge Base -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 ease-out text-neutral-400 hover:text-neutral-200 hover:bg-neutral-800/30" href="#">
+<span class="material-symbols-outlined">database</span>
+<span class="font-manrope tracking-tight">Knowledge Base</span>
+</a>
+<!-- Settings -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 ease-out text-neutral-400 hover:text-neutral-200 hover:bg-neutral-800/30 mt-auto" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-manrope tracking-tight">Settings</span>
+</a>
+</nav>
+<div class="p-6 border-t border-white/5 space-y-4">
+<div class="flex items-center gap-3 text-neutral-400 text-sm">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">memory</span>
+<span>Ollama Active</span>
+</div>
+<div class="flex items-center gap-3 text-neutral-400 text-sm">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">schema</span>
+<span>ChromaDB Connected</span>
+</div>
+<div class="flex items-center gap-3 pt-2">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center overflow-hidden border border-white/10">
+<img class="w-full h-full object-cover" data-alt="Portrait of a professional academic researcher in a minimalist studio setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdYK2Eq8VroBWLdWIdJlbqOucBRAPe5PYR95AV5b7_389CRRkCELifovraa85MEt5pJrV6W4NPQvZQqrTK4IvEZ86fMDGaCOztmLE2EQ5m0X1UlLEv_MYnt0kWHYX1_Ip7xxwNxmDksB1_pXPceYlFtyLycrMwD2ooYnNUE8qn2KYk-_Y3cJnilJTQMnnohHd_uEPweVrJ72V78ofr1YdGo2rZMlxat7qvQVe6tu_oXq1SUKtkg3Uy_VIReTavfu_LGzjoyJvlMMhv"/>
+</div>
+<div class="flex flex-col">
+<span class="text-xs font-semibold text-neutral-200">Alex Chen</span>
+<span class="text-[10px] text-neutral-500 uppercase tracking-widest">Senior Analyst</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 flex flex-col h-screen overflow-hidden">
+<!-- TopNavBar -->
+<header class="flex items-center justify-between px-8 w-full h-16 bg-neutral-950/50 backdrop-blur-md z-40">
+<div class="flex items-center gap-4">
+<h2 class="text-on-surface font-headline font-bold text-lg">Document Analyzer</h2>
+<div class="h-4 w-px bg-white/10 mx-2"></div>
+<div class="flex items-center gap-2 text-primary font-body text-sm font-semibold">
+<span class="material-symbols-outlined text-sm">description</span>
+<span>neural_architecture_v4.pdf</span>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative group">
+<input class="bg-surface-container-high border-none rounded-full px-4 py-1.5 text-sm w-64 focus:ring-1 focus:ring-primary/50 transition-all placeholder:text-neutral-500" placeholder="Search archive..." type="text"/>
+<span class="material-symbols-outlined absolute right-3 top-2 text-neutral-500 text-sm">search</span>
+</div>
+<div class="flex items-center gap-4 text-neutral-500">
+<button class="hover:text-indigo-400 transition-opacity opacity-80 hover:opacity-100">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="hover:text-indigo-400 transition-opacity opacity-80 hover:opacity-100">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Split Screen Container -->
+<div class="flex flex-1 overflow-hidden">
+<!-- LEFT SIDE: Document Preview -->
+<section class="w-1/2 flex flex-col bg-surface-container-low relative border-r border-white/5">
+<!-- Toolbar -->
+<div class="p-4 flex items-center justify-between bg-surface-container-high/30">
+<div class="flex items-center gap-2">
+<button class="p-2 hover:bg-surface-container-high rounded-lg text-neutral-400">
+<span class="material-symbols-outlined">zoom_in</span>
+</button>
+<button class="p-2 hover:bg-surface-container-high rounded-lg text-neutral-400">
+<span class="material-symbols-outlined">zoom_out</span>
+</button>
+<div class="h-4 w-px bg-white/10 mx-1"></div>
+<span class="text-xs text-neutral-400 font-label">Page 4 of 24</span>
+</div>
+<button class="flex items-center gap-2 px-4 py-2 bg-surface-container-high hover:bg-surface-container-highest transition-colors rounded-xl text-sm font-semibold text-neutral-200">
+<span class="material-symbols-outlined text-sm">upload_file</span>
+<span>Upload New</span>
+</button>
+</div>
+<!-- PDF Placeholder View -->
+<div class="flex-1 overflow-y-auto p-12 flex justify-center bg-surface-dim">
+<div class="w-full max-w-2xl bg-white shadow-2xl min-h-[120%] p-16 flex flex-col gap-8 opacity-90 grayscale-[0.2]">
+<div class="w-32 h-2 bg-neutral-200 rounded"></div>
+<div class="w-full h-8 bg-neutral-900 rounded"></div>
+<div class="space-y-4">
+<div class="w-full h-4 bg-neutral-200 rounded"></div>
+<div class="w-5/6 h-4 bg-neutral-200 rounded"></div>
+<div class="w-full h-4 bg-neutral-200 rounded"></div>
+<div class="w-2/3 h-4 bg-neutral-200 rounded"></div>
+</div>
+<!-- Abstract/Image Box -->
+<div class="w-full aspect-video bg-neutral-100 rounded-xl flex flex-col items-center justify-center relative overflow-hidden border border-neutral-200">
+<img class="w-full h-full object-cover opacity-80" data-alt="Technical architectural blueprint with complex geometric patterns and neural network visualizations in soft blue tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLuxI75rBxsMKgp_UuXeR2hayDLCcMW2P0ovJq8lue4E_aTW-L7xzsfjkuh8f8tL-QLvfbROBWImnNASEFeYgb7xtKIqb9X6mZsJCRkTGE57PIgSFaaaChL0LMZlpggARpvBnt1J0O-lcYiyGrznFQ4QpF1TFgmCiGIDjptOu70TD0AGMQ3BaD7P1wAu6jV0YT7pdpJUUDwCqh9oYHfpMQcSwzqeyg44arSIyyOR9sMnXvvVlesUX4nepCHv0gJbYrJI5DMY3fCT1v"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="text-[10px] uppercase tracking-widest font-bold text-neutral-900 bg-white/80 px-4 py-2 backdrop-blur-sm rounded-full">Fig 4.1 Neural Mapping System</span>
+</div>
+</div>
+<div class="space-y-4">
+<div class="w-full h-4 bg-neutral-200 rounded"></div>
+<div class="w-full h-4 bg-neutral-200 rounded"></div>
+<div class="w-full h-4 bg-neutral-200 rounded"></div>
+<div class="w-3/4 h-4 bg-neutral-200 rounded"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- RIGHT SIDE: Chat Interface -->
+<section class="w-1/2 flex flex-col bg-surface relative">
+<!-- Chat Header Actions -->
+<div class="p-4 flex items-center justify-between bg-surface-container-low/50 backdrop-blur-xl z-10">
+<div class="flex items-center gap-3">
+<span class="flex items-center gap-1.5 px-3 py-1 bg-primary/10 text-primary rounded-full text-[11px] font-bold uppercase tracking-wider">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                            Context Active
+                        </span>
+<span class="text-xs text-neutral-500 font-label">Analyzed in 1.4s</span>
+</div>
+<button class="flex items-center gap-2 px-3 py-1.5 hover:bg-error-container/20 text-error rounded-lg text-xs font-semibold transition-all group">
+<span class="material-symbols-outlined text-sm transition-transform group-hover:rotate-180">restart_alt</span>
+<span>Reset Document</span>
+</button>
+</div>
+<!-- Chat History -->
+<div class="flex-1 overflow-y-auto p-8 space-y-8 flex flex-col">
+<!-- AI Bubble -->
+<div class="flex flex-col gap-3 max-w-[85%] self-start">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg">auto_awesome</span>
+<span class="text-[10px] uppercase tracking-widest font-bold text-primary/70">Archival Core</span>
+</div>
+<div class="p-6 rounded-2xl rounded-tl-none bg-surface-container-low/70 backdrop-blur-xl border-t border-l border-primary/20 relative shadow-xl">
+<div class="absolute -inset-0.5 bg-gradient-to-br from-primary/5 to-transparent rounded-2xl pointer-events-none"></div>
+<p class="text-on-surface leading-relaxed text-sm">
+                                I've completed the initial mapping of <span class="text-primary font-semibold">neural_architecture_v4.pdf</span>. 
+                                The document focuses on synaptic density variations in synthetic neural lattices. 
+                                <br/><br/>
+                                Key findings include:
+                                </p><ul class="mt-2 space-y-2 list-disc list-inside text-on-surface-variant">
+<li>Asymmetric signal propagation at 4.2GHz</li>
+<li>Non-linear decay in tertiary layers</li>
+<li>Novel cooling protocols for dense clusters</li>
+</ul>
+<br/>
+                                What specific section or data point should we analyze further?
+                            <p></p>
+</div>
+</div>
+<!-- User Bubble -->
+<div class="flex flex-col gap-3 max-w-[85%] self-end">
+<div class="p-5 rounded-2xl rounded-tr-none bg-surface-container-highest text-on-surface shadow-md">
+<p class="text-sm">Can you cross-reference the Cooling Protocols mentioned on page 14 with the energy efficiency benchmarks in our database?</p>
+</div>
+<span class="text-[10px] uppercase tracking-widest font-bold text-neutral-500 self-end">11:42 AM</span>
+</div>
+<!-- AI Bubble (Typing/Response) -->
+<div class="flex flex-col gap-3 max-w-[85%] self-start">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg">auto_awesome</span>
+<span class="text-[10px] uppercase tracking-widest font-bold text-primary/70">Archival Core</span>
+</div>
+<div class="p-6 rounded-2xl rounded-tl-none bg-surface-container-low/70 backdrop-blur-xl border-t border-l border-primary/20 relative">
+<p class="text-on-surface leading-relaxed text-sm">
+                                Scanning Knowledge Base... comparing <span class="italic text-indigo-300">"Protocol-Gamma"</span> against internal efficiency standard ISO-9942.
+                                <br/><br/>
+                                Preliminary result: The cooling method proposed in this document achieves a <span class="text-primary font-bold">12.4% reduction</span> in thermal variance compared to our current benchmarks. However, it requires a higher initial coolant pressure.
+                            </p>
+</div>
+</div>
+</div>
+<!-- Chat Input Area -->
+<div class="p-6 bg-gradient-to-t from-surface via-surface/90 to-transparent">
+<div class="max-w-3xl mx-auto relative group">
+<div class="absolute -inset-1 bg-gradient-to-r from-primary/20 to-indigo-500/20 blur opacity-30 group-focus-within:opacity-100 transition-opacity duration-500"></div>
+<div class="relative flex items-end gap-3 p-3 bg-surface-container-high rounded-2xl border border-white/5 shadow-2xl">
+<button class="p-2 text-neutral-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">attach_file</span>
+</button>
+<textarea class="flex-1 bg-transparent border-none focus:ring-0 text-sm py-2 resize-none max-h-32 placeholder:text-neutral-500" placeholder="Ask about this document..." rows="1"></textarea>
+<button class="p-2.5 bg-primary text-on-primary rounded-xl flex items-center justify-center hover:scale-105 active:scale-90 transition-all">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+<div class="flex justify-center mt-3 gap-6">
+<button class="text-[10px] font-bold text-neutral-500 hover:text-primary tracking-widest uppercase transition-colors">Summarize document</button>
+<button class="text-[10px] font-bold text-neutral-500 hover:text-primary tracking-widest uppercase transition-colors">Extract citations</button>
+<button class="text-[10px] font-bold text-neutral-500 hover:text-primary tracking-widest uppercase transition-colors">Compare versions</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+</body></html>

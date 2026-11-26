@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Research Chat | Luminescent Archive</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "outline-variant": "#464555",
+              "on-surface-variant": "#c7c4d8",
+              "surface-container-lowest": "#0e0e0e",
+              "on-tertiary-container": "#ffd2be",
+              "inverse-primary": "#494bd6",
+              "on-secondary-fixed": "#0d1c2e",
+              "on-primary-container": "#d9d8ff",
+              "inverse-on-surface": "#313030",
+              "error-container": "#93000a",
+              "surface": "#131313",
+              "surface-container-high": "#2a2a2a",
+              "surface-variant": "#353534",
+              "on-background": "#e5e2e1",
+              "tertiary": "#ffb695",
+              "on-primary": "#1000a9",
+              "secondary-fixed-dim": "#b9c7df",
+              "secondary": "#b9c7df",
+              "on-tertiary": "#571f00",
+              "on-primary-fixed": "#07006c",
+              "tertiary-fixed-dim": "#ffb695",
+              "on-tertiary-fixed": "#351000",
+              "primary-fixed": "#e1e0ff",
+              "outline": "#918fa1",
+              "on-primary-fixed-variant": "#2f2ebe",
+              "surface-container-low": "#1c1b1b",
+              "surface-container-highest": "#353534",
+              "error": "#ffb4ab",
+              "secondary-container": "#3c4a5e",
+              "background": "#131313",
+              "tertiary-container": "#a44100",
+              "surface-bright": "#3a3939",
+              "tertiary-fixed": "#ffdbcc",
+              "on-surface": "#e5e2e1",
+              "on-error": "#690005",
+              "on-secondary": "#233144",
+              "on-error-container": "#ffdad6",
+              "primary-fixed-dim": "#c0c1ff",
+              "inverse-surface": "#e5e2e1",
+              "primary": "#c0c1ff",
+              "surface-dim": "#131313",
+              "secondary-fixed": "#d5e3fc",
+              "on-tertiary-fixed-variant": "#7b2f00",
+              "surface-container": "#201f1f",
+              "on-secondary-container": "#abb9d1",
+              "surface-tint": "#c0c1ff",
+              "on-secondary-fixed-variant": "#3a485b",
+              "primary-container": "#4b4dd8"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 4px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #2a2a2a;
+        border-radius: 10px;
+      }
+      .glass-sidebar {
+        background: rgba(23, 23, 23, 0.7);
+        backdrop-filter: blur(24px);
+      }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface overflow-hidden h-screen flex">
+<!-- SideNavBar (Execution from JSON) -->
+<aside class="fixed left-0 top-0 h-full flex flex-col bg-neutral-900/70 backdrop-blur-xl h-screen w-64 border-r border-white/5 shadow-2xl shadow-black/50 z-50">
+<div class="p-6">
+<h1 class="text-xl font-bold tracking-widest text-neutral-100 font-headline uppercase mb-1">Luminescent Archive</h1>
+<p class="text-xs text-neutral-400 font-label tracking-wider opacity-60">AI Research System</p>
+</div>
+<div class="px-4 mb-6">
+<button class="w-full py-3 px-4 bg-primary-container text-on-primary-container rounded-xl flex items-center justify-center gap-3 transition-all duration-200 ease-out hover:scale-95 active:scale-90 shadow-lg shadow-primary-container/20">
+<span class="material-symbols-outlined text-sm">add</span>
+<span class="font-semibold text-sm">New Research Session</span>
+</button>
+</div>
+<nav class="flex-1 px-3 space-y-1">
+<!-- Active: Research Chat -->
+<a class="flex items-center gap-3 px-3 py-3 border-l-4 border-indigo-400 bg-neutral-800/50 text-indigo-200 font-semibold transition-all duration-200 ease-out" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="chat_bubble">chat_bubble</span>
+<span class="text-sm">Research Chat</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 text-neutral-400 hover:text-neutral-200 hover:bg-neutral-800/30 transition-all duration-200 ease-out" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="contract_edit">contract_edit</span>
+<span class="text-sm">Document Analyzer</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 text-neutral-400 hover:text-neutral-200 hover:bg-neutral-800/30 transition-all duration-200 ease-out" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="travel_explore">travel_explore</span>
+<span class="text-sm">Web Research</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 text-neutral-400 hover:text-neutral-200 hover:bg-neutral-800/30 transition-all duration-200 ease-out" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="database">database</span>
+<span class="text-sm">Knowledge Base</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 text-neutral-400 hover:text-neutral-200 hover:bg-neutral-800/30 transition-all duration-200 ease-out mt-auto" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="settings">settings</span>
+<span class="text-sm">Settings</span>
+</a>
+</nav>
+<div class="mt-auto p-4 border-t border-white/5 space-y-3">
+<div class="flex items-center justify-between text-[10px] text-neutral-400 font-label uppercase tracking-widest">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="material-symbols-outlined text-xs" data-icon="memory">memory</span>
+<span>Ollama Active</span>
+</div>
+</div>
+<div class="flex items-center justify-between text-[10px] text-neutral-400 font-label uppercase tracking-widest">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="material-symbols-outlined text-xs" data-icon="schema">schema</span>
+<span>ChromaDB Connected</span>
+</div>
+</div>
+<div class="pt-4 flex items-center gap-3">
+<img alt="User profile avatar" class="w-8 h-8 rounded-full border border-white/10" data-alt="close-up portrait of a professional male researcher in a modern dark office setting with soft ambient blue lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvb6LmXmaJI7s-dI-asAxvV1TpHBAjGlOYvrBw14M86O71cKTIefbuC9jHv1u66ifLQZeNEdHgsZr56k-uYLtHu5GtEOYr88dNyzRCNbPH4wUIC1EMsJSPzkHJaX_7-_Glb448qxIWj0lTR_ucDSs8ZsKLMc9naKlVWPtZ5ioCSnc04heN7Ycno5b0Ay26QgKsMm9e4apWMKlr9UE84JCkXf_m1TtF3jLa4DZax2zdMbuo_2GKQlUmwArYmyNBbuH1_EzIj0CO3FyS"/>
+<div class="flex flex-col">
+<span class="text-xs font-semibold text-neutral-100">Alexander Thorne</span>
+<span class="text-[10px] text-neutral-500">Lead Researcher</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 flex-1 flex flex-col h-full bg-surface-dim relative">
+<!-- TopNavBar (Execution from JSON) -->
+<header class="flex items-center justify-between px-8 h-16 bg-neutral-950/50 backdrop-blur-md w-full sticky top-0 z-40">
+<div class="flex items-center gap-4">
+<span class="text-xs font-label text-neutral-500 tracking-[0.2em] uppercase">Session: Quantum Computing Trends</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative group">
+<input class="bg-surface-container-high border-none rounded-full px-5 py-1.5 text-xs w-64 focus:ring-1 focus:ring-primary/30 transition-all text-on-surface-variant placeholder:text-neutral-600" placeholder="Search archive..." type="text"/>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-sm text-neutral-500">search</span>
+</div>
+<div class="flex items-center gap-4 text-neutral-500">
+<button class="hover:text-indigo-400 transition-opacity opacity-80 hover:opacity-100">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="hover:text-indigo-400 transition-opacity opacity-80 hover:opacity-100">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Chat Area -->
+<section class="flex-1 overflow-y-auto custom-scrollbar px-8 py-10 max-w-5xl mx-auto w-full space-y-10 pb-40">
+<!-- User Message -->
+<div class="flex flex-col items-end w-full group">
+<div class="flex items-center gap-3 mb-2 opacity-50 group-hover:opacity-100 transition-opacity">
+<span class="text-[10px] font-label tracking-tighter uppercase">You</span>
+<span class="text-[10px] font-label text-neutral-600">14:22 PM</span>
+</div>
+<div class="bg-surface-container-highest text-on-surface max-w-[80%] px-6 py-4 rounded-xl rounded-tr-none shadow-sm text-sm leading-relaxed">
+                    Analyze the latest breakthroughs in topological quantum computing from the last 6 months. Focus on hardware scalability and error correction protocols.
+                </div>
+</div>
+<!-- AI Response -->
+<div class="flex flex-col items-start w-full group">
+<div class="flex items-center gap-3 mb-2 opacity-50 group-hover:opacity-100 transition-opacity">
+<div class="w-5 h-5 bg-primary-container rounded-sm flex items-center justify-center">
+<span class="material-symbols-outlined text-[12px] text-on-primary-container" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<span class="text-[10px] font-label tracking-tighter uppercase text-primary">Luminescent AI</span>
+<span class="text-[10px] font-label text-neutral-600">14:23 PM</span>
+</div>
+<div class="relative bg-neutral-900/40 backdrop-blur-xl border-l border-primary/20 max-w-[90%] px-8 py-6 rounded-xl rounded-tl-none text-sm leading-relaxed text-on-surface-variant shadow-2xl">
+<!-- Subtle AI Background Glow -->
+<div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent pointer-events-none rounded-xl"></div>
+<p class="mb-4">Based on the indexed papers from Nature Physics and ArXiv, there have been three significant breakthroughs regarding Majorana zero modes and their application in topological qubits:</p>
+<div class="grid grid-cols-2 gap-4 mb-6">
+<div class="p-4 bg-surface-container-low rounded-lg border border-white/5">
+<h4 class="text-primary-fixed-dim font-semibold text-xs mb-1">Microsoft Azure Quantum</h4>
+<p class="text-[11px] text-neutral-400">Validated high-fidelity Majorana signals in a hardware-scalable platform using InAs-Al nanowires.</p>
+</div>
+<div class="p-4 bg-surface-container-low rounded-lg border border-white/5">
+<h4 class="text-primary-fixed-dim font-semibold text-xs mb-1">QuTech (Delft)</h4>
+<p class="text-[11px] text-neutral-400">Implementation of a 17-qubit surface code for autonomous error correction, reaching the fault-tolerance threshold.</p>
+</div>
+</div>
+<p class="mb-6">The primary shift has been from theoretical validation to **material purity improvements**, which significantly reduces the noise floor for braiding operations.</p>
+<!-- Sources Used Footer -->
+<div class="mt-4 pt-4 border-t border-white/5 flex items-center gap-4 overflow-x-auto pb-2">
+<span class="text-[10px] font-label uppercase text-neutral-500 whitespace-nowrap">Sources:</span>
+<div class="flex gap-2">
+<div class="flex items-center gap-2 bg-surface-container-high px-3 py-1.5 rounded-full hover:bg-surface-bright transition-colors cursor-pointer border border-white/5">
+<span class="material-symbols-outlined text-xs text-primary">description</span>
+<span class="text-[10px] font-medium whitespace-nowrap">Nature_Phys_2024_Q...</span>
+</div>
+<div class="flex items-center gap-2 bg-surface-container-high px-3 py-1.5 rounded-full hover:bg-surface-bright transition-colors cursor-pointer border border-white/5">
+<span class="material-symbols-outlined text-xs text-primary">link</span>
+<span class="text-[10px] font-medium whitespace-nowrap">ArXiv:2403.11902</span>
+</div>
+<div class="flex items-center gap-2 bg-surface-container-high px-3 py-1.5 rounded-full hover:bg-surface-bright transition-colors cursor-pointer border border-white/5">
+<span class="material-symbols-outlined text-xs text-primary">database</span>
+<span class="text-[10px] font-medium whitespace-nowrap">Chroma_Topology_DB</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Empty Space filler for asymmetric feel -->
+<div class="h-12 w-full"></div>
+<!-- User Message 2 -->
+<div class="flex flex-col items-end w-full group">
+<div class="flex items-center gap-3 mb-2 opacity-50 group-hover:opacity-100 transition-opacity">
+<span class="text-[10px] font-label tracking-tighter uppercase">You</span>
+<span class="text-[10px] font-label text-neutral-600">14:25 PM</span>
+</div>
+<div class="bg-surface-container-highest text-on-surface max-w-[80%] px-6 py-4 rounded-xl rounded-tr-none shadow-sm text-sm leading-relaxed">
+                    Can you cross-reference the QuTech error correction results with the recently published IBM roadmap?
+                </div>
+</div>
+</section>
+<!-- Input Section -->
+<div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-surface-dim via-surface-dim/95 to-transparent">
+<div class="max-w-4xl mx-auto">
+<div class="relative group">
+<div class="absolute inset-0 bg-primary/5 blur-xl group-focus-within:bg-primary/10 transition-all rounded-3xl"></div>
+<div class="relative bg-surface-container-high rounded-2xl flex items-end gap-3 p-4 shadow-2xl border border-white/5">
+<button class="p-2 text-neutral-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">attach_file</span>
+</button>
+<textarea class="flex-1 bg-transparent border-none focus:ring-0 text-on-surface placeholder:text-neutral-600 text-sm py-2 resize-none max-h-40 custom-scrollbar" placeholder="Deep research into quantum architectures..." rows="1"></textarea>
+<div class="flex items-center gap-2">
+<div class="flex items-center gap-1.5 px-3 py-1.5 bg-surface-container-lowest rounded-lg border border-white/5 mr-2">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span class="text-[10px] font-label text-neutral-400 uppercase tracking-tighter">Deep Scan ON</span>
+</div>
+<button class="w-10 h-10 bg-primary text-on-primary rounded-xl flex items-center justify-center transition-all hover:scale-105 active:scale-95 shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">send</span>
+</button>
+</div>
+</div>
+</div>
+<p class="text-center text-[10px] text-neutral-600 mt-4 font-label uppercase tracking-[0.3em]">Precision-tuned for academic synthesis</p>
+</div>
+</div>
+</main>
+<!-- Right Context Panel (Floating Assistant Utility) -->
+<aside class="w-80 h-full border-l border-white/5 bg-surface-container-low/50 hidden xl:flex flex-col p-6">
+<h3 class="text-xs font-label uppercase tracking-widest text-neutral-500 mb-6">Research Context</h3>
+<div class="space-y-6">
+<div class="p-4 bg-surface-container-high/50 rounded-xl border border-white/5">
+<div class="flex items-center justify-between mb-4">
+<span class="text-[11px] font-semibold text-primary">Active Analysis</span>
+<span class="material-symbols-outlined text-xs text-primary">query_stats</span>
+</div>
+<div class="space-y-3">
+<div class="h-1.5 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[75%]"></div>
+</div>
+<p class="text-[10px] text-neutral-400">Synthesizing 14 sources across 3 database clusters.</p>
+</div>
+</div>
+<div class="space-y-4">
+<span class="text-[10px] font-label uppercase tracking-widest text-neutral-600">Quick Actions</span>
+<button class="w-full text-left px-4 py-3 bg-surface-container rounded-xl text-xs hover:bg-surface-container-high transition-colors flex items-center justify-between group">
+<span>Export Synthesis</span>
+<span class="material-symbols-outlined text-sm opacity-0 group-hover:opacity-100 transition-opacity">download</span>
+</button>
+<button class="w-full text-left px-4 py-3 bg-surface-container rounded-xl text-xs hover:bg-surface-container-high transition-colors flex items-center justify-between group">
+<span>Generate Citations</span>
+<span class="material-symbols-outlined text-sm opacity-0 group-hover:opacity-100 transition-opacity">format_quote</span>
+</button>
+<button class="w-full text-left px-4 py-3 bg-surface-container rounded-xl text-xs hover:bg-surface-container-high transition-colors flex items-center justify-between group text-error/80">
+<span>Clear Workspace</span>
+<span class="material-symbols-outlined text-sm opacity-0 group-hover:opacity-100 transition-opacity">delete_sweep</span>
+</button>
+</div>
+<div class="mt-12 flex-1">
+<img alt="Abstract visualization of quantum particles" class="w-full h-48 object-cover rounded-2xl opacity-40 grayscale hover:grayscale-0 transition-all duration-500" data-alt="vibrant blue and purple light streaks swirling in a dark digital void representing complex quantum data visualizations" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADnk3OlAM6nJQ1tT6L7fN45czAQMzqVM1h8CNE0sbVnAw6OhhC2w_IbFrJSbqi6WWVFlPxiUsORmap0ZR-t1nkIYoEVu0qhY49pMO1uNP1SPqM_X4LNw3i_jnLe9fWsyWrAq1amHGDSgcZCf7Da5BNW6jfhF3fYZgSGcEnpqa4inBsXDtYUkpL1-unzpVBwZfhlmV3TnROujK-O_Xz25Se3RBJYNgRIQZJmmyEERL__tIMk-gsb4bsbGGu3uildu7U8sWocGsDY7PO"/>
+<p class="text-[10px] italic text-neutral-600 mt-3 text-center">"Research is the act of looking at the void until it speaks."</p>
+</div>
+</div>
+</aside>
+</body></html>

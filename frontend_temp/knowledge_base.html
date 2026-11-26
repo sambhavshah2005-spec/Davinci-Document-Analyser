@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "outline-variant": "#464555",
+            "on-surface-variant": "#c7c4d8",
+            "surface-container-lowest": "#0e0e0e",
+            "on-tertiary-container": "#ffd2be",
+            "inverse-primary": "#494bd6",
+            "on-secondary-fixed": "#0d1c2e",
+            "on-primary-container": "#d9d8ff",
+            "inverse-on-surface": "#313030",
+            "error-container": "#93000a",
+            "surface": "#131313",
+            "surface-container-high": "#2a2a2a",
+            "surface-variant": "#353534",
+            "on-background": "#e5e2e1",
+            "tertiary": "#ffb695",
+            "on-primary": "#1000a9",
+            "secondary-fixed-dim": "#b9c7df",
+            "secondary": "#b9c7df",
+            "on-tertiary": "#571f00",
+            "on-primary-fixed": "#07006c",
+            "tertiary-fixed-dim": "#ffb695",
+            "on-tertiary-fixed": "#351000",
+            "primary-fixed": "#e1e0ff",
+            "outline": "#918fa1",
+            "on-primary-fixed-variant": "#2f2ebe",
+            "surface-container-low": "#1c1b1b",
+            "surface-container-highest": "#353534",
+            "error": "#ffb4ab",
+            "secondary-container": "#3c4a5e",
+            "background": "#131313",
+            "tertiary-container": "#a44100",
+            "surface-bright": "#3a3939",
+            "tertiary-fixed": "#ffdbcc",
+            "on-surface": "#e5e2e1",
+            "on-error": "#690005",
+            "on-secondary": "#233144",
+            "on-error-container": "#ffdad6",
+            "primary-fixed-dim": "#c0c1ff",
+            "inverse-surface": "#e5e2e1",
+            "primary": "#c0c1ff",
+            "surface-dim": "#131313",
+            "secondary-fixed": "#d5e3fc",
+            "on-tertiary-fixed-variant": "#7b2f00",
+            "surface-container": "#201f1f",
+            "on-secondary-container": "#abb9d1",
+            "surface-tint": "#c0c1ff",
+            "on-secondary-fixed-variant": "#3a485b",
+            "primary-container": "#4b4dd8"
+          },
+          fontFamily: {
+            "headline": ["Manrope"],
+            "body": ["Inter"],
+            "label": ["Inter"]
+          },
+          borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .glass-panel {
+      backdrop-filter: blur(24px);
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #131313;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #2a2a2a;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container overflow-hidden">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full flex flex-col bg-neutral-900/70 backdrop-blur-xl h-screen w-64 border-r border-white/5 shadow-2xl shadow-black/50 z-50">
+<div class="p-6">
+<div class="text-xl font-bold tracking-widest text-neutral-100 font-headline mb-1">Luminescent Archive</div>
+<div class="text-xs text-neutral-400 font-label tracking-widest uppercase opacity-70">AI Research System</div>
+</div>
+<div class="px-4 mb-6">
+<button class="w-full flex items-center justify-center gap-2 py-3 px-4 bg-primary-container text-on-primary-container rounded-xl font-semibold transition-all duration-200 hover:brightness-110 active:scale-95 shadow-lg shadow-primary-container/20">
+<span class="material-symbols-outlined text-lg">add</span>
+<span class="text-sm">New Research Session</span>
+</button>
+</div>
+<nav class="flex-1 px-3 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-neutral-400 hover:text-neutral-200 hover:bg-neutral-800/30 transition-all duration-200 ease-out rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:text-indigo-300">chat_bubble</span>
+<span class="text-sm font-medium">Research Chat</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-neutral-400 hover:text-neutral-200 hover:bg-neutral-800/30 transition-all duration-200 ease-out rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:text-indigo-300">contract_edit</span>
+<span class="text-sm font-medium">Document Analyzer</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-neutral-400 hover:text-neutral-200 hover:bg-neutral-800/30 transition-all duration-200 ease-out rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:text-indigo-300">travel_explore</span>
+<span class="text-sm font-medium">Web Research</span>
+</a>
+<!-- Active Tab: Knowledge Base -->
+<a class="flex items-center gap-3 px-4 py-3 border-l-4 border-indigo-400 bg-neutral-800/50 text-indigo-200 font-semibold transition-all duration-200 ease-out" href="#">
+<span class="material-symbols-outlined">database</span>
+<span class="text-sm">Knowledge Base</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-neutral-400 hover:text-neutral-200 hover:bg-neutral-800/30 transition-all duration-200 ease-out rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:text-indigo-300">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</nav>
+<div class="mt-auto p-4 space-y-3 border-t border-white/5">
+<div class="flex items-center gap-3 px-2">
+<div class="relative">
+<img alt="User avatar" class="w-8 h-8 rounded-full object-cover" data-alt="professional headshot of a researcher in a dark studio setting with soft cyan rim lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7dnDHfjEJmuOSQT4CAVxWdd9N6Hp8C4npvNeQCQTKoWiBVqzygxB_x8j109UHY-uMcx3dT9EDrq3HVyJK5bhkhU2bWX0-eOBG6_SAZ2I8F3pnLLeBXQmYc0g1K09WG6yfs9Zwg85TktzAE86r1Eei1MYdzvnFgXE3S4MZ4uKvtqO0AmMtHPEMD0sejuRKJ-IztyClRcq4-HiMNMdGQ1rQDarwNlXCfYFdcSxiXE3pxxq43dTPAyWVPDXtEMZy-g7uYL7ah173YsXq"/>
+<div class="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 bg-primary rounded-full border-2 border-neutral-900 shadow-[0_0_8px_rgba(192,193,255,0.6)]"></div>
+</div>
+<div class="flex flex-col">
+<span class="text-xs font-bold text-neutral-100">Dr. Aris Thorne</span>
+<span class="text-[10px] text-neutral-500 uppercase tracking-tighter">Lead Analyst</span>
+</div>
+</div>
+<div class="flex flex-col gap-1 px-2">
+<div class="flex items-center gap-2 text-[10px] text-neutral-500">
+<span class="material-symbols-outlined text-[14px]">memory</span>
+<span>Ollama Active</span>
+</div>
+<div class="flex items-center gap-2 text-[10px] text-neutral-500">
+<span class="material-symbols-outlined text-[14px]">schema</span>
+<span>ChromaDB Connected</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- TopNavBar -->
+<header class="flex items-center justify-between px-8 ml-64 w-[calc(100%-16rem)] h-16 bg-neutral-950/50 backdrop-blur-md fixed top-0 z-40">
+<div class="flex items-center gap-2">
+<span class="text-neutral-500 text-sm">Workspace</span>
+<span class="material-symbols-outlined text-neutral-700 text-sm">chevron_right</span>
+<span class="text-indigo-400 font-bold text-sm tracking-tight">Knowledge Base</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-neutral-500 text-lg">search</span>
+<input class="bg-surface-container-high border-none rounded-full pl-10 pr-4 py-1.5 text-sm w-64 focus:ring-1 focus:ring-primary/30 text-on-surface placeholder:text-neutral-600 transition-all" placeholder="Search archive..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-neutral-500 hover:text-indigo-300 transition-opacity opacity-80 hover:opacity-100">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-neutral-500 hover:text-indigo-300 transition-opacity opacity-80 hover:opacity-100">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-24 pb-12 px-12 min-h-screen bg-surface overflow-y-auto">
+<div class="max-w-6xl mx-auto">
+<!-- Welcome/Header Section -->
+<section class="mb-12">
+<h1 class="font-headline text-4xl font-extrabold tracking-tight mb-2 text-on-surface">Knowledge Archive</h1>
+<p class="text-on-surface-variant max-w-2xl font-body leading-relaxed opacity-80">
+          Your semantic memory system. All ingested documents are chunked, vectorized, and stored in the local vector database for instant AI retrieval.
+        </p>
+</section>
+<!-- Grid Layout for Content -->
+<div class="grid grid-cols-12 gap-8">
+<!-- Left Column: Stats & Actions -->
+<div class="col-span-12 lg:col-span-4 space-y-6">
+<div class="p-6 rounded-xl bg-surface-container-low border border-white/5 shadow-sm">
+<h3 class="text-xs font-bold uppercase tracking-widest text-primary mb-4 opacity-70">Archive Overview</h3>
+<div class="space-y-4">
+<div class="flex justify-between items-end">
+<span class="text-sm text-neutral-400">Total Documents</span>
+<span class="text-2xl font-headline font-bold">142</span>
+</div>
+<div class="flex justify-between items-end">
+<span class="text-sm text-neutral-400">Vector Chunks</span>
+<span class="text-2xl font-headline font-bold">12,482</span>
+</div>
+<div class="pt-4 border-t border-white/5">
+<div class="flex justify-between text-[10px] text-neutral-500 mb-1">
+<span>STORAGE UTILIZATION</span>
+<span>4.2 GB</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-high rounded-full overflow-hidden">
+<div class="bg-primary-container h-full w-[42%]"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="p-6 rounded-xl bg-primary-container/10 border border-primary/10 group cursor-pointer hover:bg-primary-container/20 transition-all">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined text-2xl">upload_file</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-indigo-200">Ingest New Source</h4>
+<p class="text-xs text-indigo-400/70">Support for PDF, MD, DOCX, CSV</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: File List -->
+<div class="col-span-12 lg:col-span-8 space-y-4">
+<div class="flex items-center justify-between mb-2 px-2">
+<h3 class="text-xs font-bold uppercase tracking-widest text-neutral-500">Recent Documents</h3>
+<div class="flex gap-4">
+<button class="text-xs text-primary font-semibold flex items-center gap-1 hover:underline">
+<span class="material-symbols-outlined text-xs">filter_list</span> Filter
+              </button>
+<button class="text-xs text-primary font-semibold flex items-center gap-1 hover:underline">
+<span class="material-symbols-outlined text-xs">sort</span> Sort
+              </button>
+</div>
+</div>
+<!-- File Card 1 -->
+<div class="group rounded-xl bg-surface-container-low transition-all duration-300 hover:bg-surface-container-high border border-transparent hover:border-white/5 p-5">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-indigo-300">
+<span class="material-symbols-outlined">description</span>
+</div>
+<div>
+<h4 class="text-on-surface font-semibold text-sm">notes.md</h4>
+<div class="flex items-center gap-3 mt-1">
+<span class="text-[10px] text-neutral-500 bg-surface-container px-2 py-0.5 rounded uppercase tracking-tighter">Markdown</span>
+<span class="text-[10px] text-neutral-500">Modified 2h ago</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="text-right">
+<div class="text-xs font-bold text-on-surface">24 chunks</div>
+<div class="text-[10px] text-neutral-500 uppercase tracking-tighter">Vectorized</div>
+</div>
+<button class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined text-neutral-500">expand_more</span>
+</button>
+</div>
+</div>
+</div>
+<!-- File Card 2 -->
+<div class="group rounded-xl bg-surface-container-low transition-all duration-300 hover:bg-surface-container-high border border-transparent hover:border-white/5 p-5">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-indigo-300">
+<span class="material-symbols-outlined">article</span>
+</div>
+<div>
+<h4 class="text-on-surface font-semibold text-sm">summary_q3_report.docx</h4>
+<div class="flex items-center gap-3 mt-1">
+<span class="text-[10px] text-neutral-500 bg-surface-container px-2 py-0.5 rounded uppercase tracking-tighter">Word Doc</span>
+<span class="text-[10px] text-neutral-500">Modified yesterday</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="text-right">
+<div class="text-xs font-bold text-on-surface">118 chunks</div>
+<div class="text-[10px] text-neutral-500 uppercase tracking-tighter">Vectorized</div>
+</div>
+<button class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined text-neutral-500">expand_more</span>
+</button>
+</div>
+</div>
+<!-- Expanded Chunk Preview -->
+<div class="mt-6 pt-6 border-t border-white/5 space-y-4">
+<div class="text-[10px] font-bold text-neutral-500 uppercase tracking-widest mb-2">Sample Chunks</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="p-3 rounded-lg bg-surface-container-highest/50 border border-white/5 text-[11px] leading-relaxed text-on-surface-variant italic">
+                  "...quarterly analysis shows a 15% increase in compute efficiency when utilizing ChromaDB indexing over traditional SQL lookups..."
+                </div>
+<div class="p-3 rounded-lg bg-surface-container-highest/50 border border-white/5 text-[11px] leading-relaxed text-on-surface-variant italic">
+                  "...fiscal projections for the Luminescent Archive project suggest a break-even point by Q1 of next year, assuming current scaling..."
+                </div>
+</div>
+</div>
+</div>
+<!-- File Card 3 -->
+<div class="group rounded-xl bg-surface-container-low transition-all duration-300 hover:bg-surface-container-high border border-transparent hover:border-white/5 p-5">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-indigo-300">
+<span class="material-symbols-outlined">table_chart</span>
+</div>
+<div>
+<h4 class="text-on-surface font-semibold text-sm">dataset_training_logs.csv</h4>
+<div class="flex items-center gap-3 mt-1">
+<span class="text-[10px] text-neutral-500 bg-surface-container px-2 py-0.5 rounded uppercase tracking-tighter">CSV Data</span>
+<span class="text-[10px] text-neutral-500">Modified 3 days ago</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="text-right">
+<div class="text-xs font-bold text-on-surface">1,402 chunks</div>
+<div class="text-[10px] text-neutral-500 uppercase tracking-tighter">Vectorized</div>
+</div>
+<button class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined text-neutral-500">expand_more</span>
+</button>
+</div>
+</div>
+</div>
+<!-- File Card 4 -->
+<div class="group rounded-xl bg-surface-container-low transition-all duration-300 hover:bg-surface-container-high border border-transparent hover:border-white/5 p-5">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-indigo-300">
+<span class="material-symbols-outlined">picture_as_pdf</span>
+</div>
+<div>
+<h4 class="text-on-surface font-semibold text-sm">whitepaper_synthetic_minds.pdf</h4>
+<div class="flex items-center gap-3 mt-1">
+<span class="text-[10px] text-neutral-500 bg-surface-container px-2 py-0.5 rounded uppercase tracking-tighter">PDF Paper</span>
+<span class="text-[10px] text-neutral-500">Modified 1 week ago</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="text-right">
+<div class="text-xs font-bold text-on-surface">562 chunks</div>
+<div class="text-[10px] text-neutral-500 uppercase tracking-tighter">Vectorized</div>
+</div>
+<button class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined text-neutral-500">expand_more</span>
+</button>
+</div>
+</div>
+</div>
+<div class="pt-8 text-center">
+<button class="text-xs font-bold text-neutral-500 hover:text-primary transition-colors flex items-center gap-2 mx-auto">
+              VIEW FULL ARCHIVE
+              <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Global AI Pulse Background Layer -->
+<div class="fixed inset-0 pointer-events-none z-[-1] overflow-hidden opacity-30">
+<div class="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] bg-primary/5 blur-[120px] rounded-full"></div>
+<div class="absolute bottom-[-5%] left-[10%] w-[40%] h-[40%] bg-indigo-500/5 blur-[100px] rounded-full"></div>
+</div>
+</body></html>
